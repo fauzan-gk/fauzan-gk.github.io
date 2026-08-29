@@ -758,8 +758,10 @@ body {
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 14px;
-  padding: 22px 18px;
-  text-align: center;
+  padding: 20px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
   transition: border-color 0.3s, background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
@@ -771,16 +773,16 @@ body {
 }
 
 .wid-icon {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
   background: rgba(232, 57, 81, 0.12);
   border-radius: 12px;
   color: #E83951;
-  font-size: 20px;
-  margin-bottom: 12px;
+  font-size: 18px;
   transition: background 0.3s, transform 0.3s;
 }
 
@@ -789,14 +791,14 @@ body {
   transform: scale(1.1);
 }
 
-.wid-card h4 {
+.wid-text h4 {
   font-size: 15px;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-.wid-card p {
+.wid-text p {
   font-size: 13px;
   color: #999;
   line-height: 1.5;
