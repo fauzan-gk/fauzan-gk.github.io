@@ -14,9 +14,22 @@
 
 <body>
 
+<!-- ══════════ PRELOADER ══════════ -->
+<div id="preloader">
+  <div class="loader-content">
+    <div class="loader-logo">FGK</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <p class="loader-text">Loading portfolio...</p>
+  </div>
+</div>
+
+<!-- ══════════ GRAIN OVERLAY ══════════ -->
+<div id="grain-overlay"></div>
+
 <!-- ── Particle background (always visible) ── -->
 <div id="particles">
   <div id="overlay"></div>
+  <div id="vignette"></div>
 </div>
 
 <!-- ── Top Menu Bar ── -->
@@ -28,7 +41,29 @@
     <li><a href="#" class="nav-link" data-slide="projects" onclick="goTo('projects')">Projects</a></li>
     <li><a href="#" class="nav-link" data-slide="contact" onclick="goTo('contact')">Contact</a></li>
   </ul>
+  <!-- Mobile hamburger -->
+  <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
+<!-- ── Mobile Menu Overlay ── -->
+<div id="mobile-menu" class="mobile-menu">
+  <ul class="mobile-nav-links">
+    <li><a href="#" onclick="goTo('home'); toggleMobileMenu(); return false;">Home</a></li>
+    <li><a href="#" onclick="goTo('about'); toggleMobileMenu(); return false;">About</a></li>
+    <li><a href="#" onclick="goTo('projects'); toggleMobileMenu(); return false;">Projects</a></li>
+    <li><a href="#" onclick="goTo('contact'); toggleMobileMenu(); return false;">Contact</a></li>
+  </ul>
+</div>
+
+<!-- ── Slide Progress Dots ── -->
+<div id="slide-dots">
+  <span class="dot active" data-slide="home" onclick="goTo('home')"></span>
+  <span class="dot" data-slide="about" onclick="goTo('about')"></span>
+  <span class="dot" data-slide="projects" onclick="goTo('projects')"></span>
+  <span class="dot" data-slide="contact" onclick="goTo('contact')"></span>
+</div>
 
 <!-- ── Slides container ── -->
 <div id="slides">
@@ -37,25 +72,25 @@
   <div class="slide active" data-name="home">
     <div class="slide-content home-content">
       <div class="home-inner">
-        <h1 class="hero-name fade-in-up" style="animation-delay: 0.1s">
-          <span class="name-gradient">Fauzan Gauhar Khan</span>
+        <h1 class="hero-name fade-in-up" style="animation-delay: 0.3s">
+          <span class="name-gradient" id="hero-name-text"></span>
         </h1>
-        <p class="hero-tagline fade-in-up" style="animation-delay: 0.3s">
-          <span id="typed-prefix"></span><span id="typed-text"></span><span class="cursor">|</span>
+        <p class="hero-tagline fade-in-up" style="animation-delay: 0.5s">
+          <span id="typed-text"></span><span class="cursor">|</span>
         </p>
-        <hr class="divider fade-in-up" style="animation-delay: 0.45s">
-        <div class="social-row fade-in-up" style="animation-delay: 0.55s">
-          <a href="https://www.linkedin.com/in/fauzan-gauhar-khan-b1226a316/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://fauzan-gk.itch.io" title="itch.io"><i class="fab fa-itch-io"></i></a>
-          <a href="https://github.com/fauzan-gk" title="GitHub"><i class="fab fa-github"></i></a>
+        <hr class="divider fade-in-up" style="animation-delay: 0.65s">
+        <div class="social-row fade-in-up" style="animation-delay: 0.8s">
+          <a href="https://www.linkedin.com/in/fauzan-gauhar-khan-b1226a316/" title="LinkedIn" class="magnetic"><i class="fab fa-linkedin"></i></a>
+          <a href="https://fauzan-gk.itch.io" title="itch.io" class="magnetic"><i class="fab fa-itch-io"></i></a>
+          <a href="https://github.com/fauzan-gk" title="GitHub" class="magnetic"><i class="fab fa-github"></i></a>
         </div>
-        <div class="home-buttons fade-in-up" style="animation-delay: 0.7s">
-          <a href="fgkCV.pdf" download class="btn btn-primary">Download CV</a>
-          <a href="#" class="btn btn-outline" onclick="goTo('about'); return false;">About Me <i class="fas fa-arrow-right btn-icon"></i></a>
+        <div class="home-buttons fade-in-up" style="animation-delay: 0.95s">
+          <a href="fgkCV.pdf" download class="btn btn-primary magnetic">Download CV</a>
+          <a href="#" class="btn btn-outline magnetic" onclick="goTo('about'); return false;">About Me <i class="fas fa-arrow-right btn-icon"></i></a>
         </div>
       </div>
-      <div class="scroll-hint fade-in-up" style="animation-delay: 1.2s">
-        <span>Scroll or navigate</span>
+      <div class="scroll-hint fade-in-up" style="animation-delay: 1.4s">
+        <span>Navigate</span>
         <div class="scroll-arrows">
           <i class="fas fa-chevron-down"></i>
         </div>
@@ -65,7 +100,7 @@
 
   <!-- ══════════════ ABOUT ══════════════ -->
   <div class="slide" data-name="about">
-    <div class="slide-content scroll-content">
+    <div class="slide-content scroll-content" data-scroll-reveal>
       <!-- Profile Header -->
       <div class="about-top">
         <div class="profile-pic-wrapper">
@@ -77,7 +112,7 @@
       </div>
 
       <!-- Bio -->
-      <div class="about-section">
+      <div class="about-section reveal-item">
         <p class="bio-text">
           .NET developer and BS Computer Science student with hands-on experience across the C# ecosystem — C#, ASP.NET Core, Blazor, Web APIs, and SQL Server/EF Core. Built and shipped <strong>CyberShield</strong>, a full desktop antivirus application with a multi-layer scanning engine, placing runner-up in a Semester Project Competition.
         </p>
@@ -86,10 +121,35 @@
         </p>
       </div>
 
+      <!-- What I Do -->
+      <h3 class="section-subtitle reveal-item"><span class="subtitle-icon"><i class="fas fa-star"></i></span> What I Do</h3>
+      <div class="what-i-do reveal-item">
+        <div class="wid-card">
+          <div class="wid-icon"><i class="fas fa-laptop-code"></i></div>
+          <h4>Desktop Apps</h4>
+          <p>Building robust .NET desktop applications with WinForms, WPF, and Blazor Hybrid</p>
+        </div>
+        <div class="wid-card">
+          <div class="wid-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h4>Mobile Apps</h4>
+          <p>Cross-platform mobile products with Flutter and Firebase backends</p>
+        </div>
+        <div class="wid-card">
+          <div class="wid-icon"><i class="fas fa-gamepad"></i></div>
+          <h4>Game Dev</h4>
+          <p>Unity games with URP rendering, combat systems, and data-driven architecture</p>
+        </div>
+        <div class="wid-card">
+          <div class="wid-icon"><i class="fas fa-server"></i></div>
+          <h4>Backend & APIs</h4>
+          <p>RESTful APIs, cloud functions, real-time databases, and push notifications</p>
+        </div>
+      </div>
+
       <!-- Skills -->
-      <h3 class="section-subtitle"><span class="subtitle-icon"><i class="fas fa-code"></i></span> Technical Skills</h3>
-      <div class="skills-grid">
-        <div class="skill-card">
+      <h3 class="section-subtitle reveal-item"><span class="subtitle-icon"><i class="fas fa-code"></i></span> Technical Skills</h3>
+      <div class="skills-grid reveal-item">
+        <div class="skill-card tilt-card">
           <div class="skill-card-header">
             <i class="fas fa-terminal"></i>
             <h4>Languages</h4>
@@ -99,7 +159,7 @@
             <span class="skill-tag">Java</span>
           </div>
         </div>
-        <div class="skill-card">
+        <div class="skill-card tilt-card">
           <div class="skill-card-header">
             <i class="fab fa-microsoft"></i>
             <h4>.NET Ecosystem</h4>
@@ -111,7 +171,7 @@
             <span class="skill-tag">WinForms</span>
           </div>
         </div>
-        <div class="skill-card">
+        <div class="skill-card tilt-card">
           <div class="skill-card-header">
             <i class="fas fa-database"></i>
             <h4>Data</h4>
@@ -121,7 +181,7 @@
             <span class="skill-tag">Entity Framework Core</span>
           </div>
         </div>
-        <div class="skill-card">
+        <div class="skill-card tilt-card">
           <div class="skill-card-header">
             <i class="fas fa-gamepad"></i>
             <h4>Mobile &amp; Game Dev</h4>
@@ -133,7 +193,7 @@
             <span class="skill-tag">ScriptableObject</span>
           </div>
         </div>
-        <div class="skill-card">
+        <div class="skill-card tilt-card">
           <div class="skill-card-header">
             <i class="fas fa-cloud"></i>
             <h4>Backend &amp; Cloud</h4>
@@ -145,7 +205,7 @@
             <span class="skill-tag">FCM</span>
           </div>
         </div>
-        <div class="skill-card">
+        <div class="skill-card tilt-card">
           <div class="skill-card-header">
             <i class="fas fa-wrench"></i>
             <h4>Tools</h4>
@@ -160,8 +220,8 @@
       </div>
 
       <!-- Education -->
-      <h3 class="section-subtitle"><span class="subtitle-icon"><i class="fas fa-graduation-cap"></i></span> Education</h3>
-      <div class="timeline">
+      <h3 class="section-subtitle reveal-item"><span class="subtitle-icon"><i class="fas fa-graduation-cap"></i></span> Education</h3>
+      <div class="timeline reveal-item">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
@@ -173,8 +233,8 @@
       </div>
 
       <!-- Experience -->
-      <h3 class="section-subtitle"><span class="subtitle-icon"><i class="fas fa-briefcase"></i></span> Experience</h3>
-      <div class="timeline">
+      <h3 class="section-subtitle reveal-item"><span class="subtitle-icon"><i class="fas fa-briefcase"></i></span> Experience</h3>
+      <div class="timeline reveal-item">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
@@ -192,18 +252,22 @@
           </div>
         </div>
       </div>
+
+      <!-- Scroll to top -->
+      <button class="scroll-top-btn" onclick="scrollToTop(this)"><i class="fas fa-arrow-up"></i></button>
     </div>
   </div>
 
   <!-- ══════════════ PROJECTS ══════════════ -->
   <div class="slide" data-name="projects">
-    <div class="slide-content scroll-content">
+    <div class="slide-content scroll-content" data-scroll-reveal>
       <h2 class="slide-heading">Projects</h2>
       <hr class="section-line">
 
       <!-- Project 1: CyberShield -->
-      <div class="project-card">
+      <div class="project-card reveal-item tilt-card">
         <div class="project-number">01</div>
+        <div class="project-accent"></div>
         <div class="project-header">
           <h3>CyberShield</h3>
           <span class="project-date">Oct 2025 – Dec 2025</span>
@@ -232,8 +296,9 @@
       </div>
 
       <!-- Project 2: GearShare -->
-      <div class="project-card">
+      <div class="project-card reveal-item tilt-card">
         <div class="project-number">02</div>
+        <div class="project-accent"></div>
         <div class="project-header">
           <h3>GearShare</h3>
           <span class="project-date">2026</span>
@@ -264,8 +329,9 @@
       </div>
 
       <!-- Project 3: Driveon (placeholder) -->
-      <div class="project-card">
+      <div class="project-card reveal-item tilt-card">
         <div class="project-number">03</div>
+        <div class="project-accent"></div>
         <div class="project-header">
           <h3>Driveon</h3>
           <span class="project-date">2026</span>
@@ -287,8 +353,9 @@
       </div>
 
       <!-- Project 4: STSHV -->
-      <div class="project-card">
+      <div class="project-card reveal-item tilt-card">
         <div class="project-number">04</div>
+        <div class="project-accent"></div>
         <div class="project-header">
           <h3>Sovereign of the Shattered Veil</h3>
           <span class="project-date">Jan 1 – Jan 7, 2026</span>
@@ -322,19 +389,21 @@
         </div>
       </div>
 
+      <!-- Scroll to top -->
+      <button class="scroll-top-btn" onclick="scrollToTop(this)"><i class="fas fa-arrow-up"></i></button>
     </div>
   </div>
 
   <!-- ══════════════ CONTACT ══════════════ -->
   <div class="slide" data-name="contact">
     <div class="slide-content contact-content">
-      <h2 class="slide-heading">Get In Touch</h2>
+      <h2 class="slide-heading reveal-item">Get In Touch</h2>
       <hr class="section-line">
 
-      <p class="contact-intro">Have a project in mind or just want to connect? Feel free to reach out — I'm always open to new opportunities and collaborations.</p>
+      <p class="contact-intro reveal-item">Have a project in mind or just want to connect? Feel free to reach out — I'm always open to new opportunities and collaborations.</p>
 
-      <div class="contact-grid">
-        <a href="mailto:fauzangauhar037@gmail.com" class="contact-item">
+      <div class="contact-grid reveal-item">
+        <a href="mailto:fauzangauhar037@gmail.com" class="contact-item tilt-card">
           <div class="contact-icon-wrap">
             <i class="fas fa-envelope"></i>
           </div>
@@ -343,7 +412,7 @@
             <span class="contact-value">fauzangauhar037@gmail.com</span>
           </div>
         </a>
-        <a href="tel:+923295645366" class="contact-item">
+        <a href="tel:+923295645366" class="contact-item tilt-card">
           <div class="contact-icon-wrap">
             <i class="fas fa-phone"></i>
           </div>
@@ -352,7 +421,7 @@
             <span class="contact-value">0329-5645366</span>
           </div>
         </a>
-        <a href="https://www.linkedin.com/in/fauzan-gauhar-khan-b1226a316/" class="contact-item" target="_blank">
+        <a href="https://www.linkedin.com/in/fauzan-gauhar-khan-b1226a316/" class="contact-item tilt-card" target="_blank">
           <div class="contact-icon-wrap">
             <i class="fab fa-linkedin"></i>
           </div>
@@ -361,7 +430,7 @@
             <span class="contact-value">fauzan-gauhar-khan</span>
           </div>
         </a>
-        <a href="https://github.com/fauzan-gk" class="contact-item" target="_blank">
+        <a href="https://github.com/fauzan-gk" class="contact-item tilt-card" target="_blank">
           <div class="contact-icon-wrap">
             <i class="fab fa-github"></i>
           </div>
@@ -370,7 +439,7 @@
             <span class="contact-value">fauzan-gk</span>
           </div>
         </a>
-        <a href="https://fauzan-gk.itch.io" class="contact-item" target="_blank">
+        <a href="https://fauzan-gk.itch.io" class="contact-item tilt-card" target="_blank">
           <div class="contact-icon-wrap">
             <i class="fab fa-itch-io"></i>
           </div>
@@ -381,16 +450,16 @@
         </a>
       </div>
 
-      <div class="contact-location">
+      <div class="contact-location reveal-item">
         <i class="fas fa-map-marker-alt"></i>
         <span>Abbottabad, Pakistan</span>
       </div>
 
-      <div class="contact-actions">
-        <a href="fgkCV.pdf" download class="btn btn-primary">Download CV</a>
+      <div class="contact-actions reveal-item">
+        <a href="fgkCV.pdf" download class="btn btn-primary magnetic">Download CV</a>
       </div>
 
-      <p class="footer-credit">Designed &amp; built by Fauzan Gauhar Khan</p>
+      <p class="footer-credit reveal-item">Designed &amp; built by Fauzan Gauhar Khan</p>
     </div>
   </div>
 
@@ -403,6 +472,7 @@
 </div>
 
 <script>
+/* ══════════════ SLIDE NAVIGATION ══════════════ */
 var slides = ['home', 'about', 'projects', 'contact'];
 
 function goTo(target) {
@@ -430,14 +500,45 @@ function goTo(target) {
   var scrollArea = dest.querySelector('.scroll-content');
   if (scrollArea) scrollArea.scrollTop = 0;
 
+  // Update nav links
   document.querySelectorAll('.nav-link').forEach(function(link) {
     link.classList.remove('active');
     if (link.getAttribute('data-slide') === target) {
       link.classList.add('active');
     }
   });
+
+  // Update dots
+  document.querySelectorAll('.dot').forEach(function(d) {
+    d.classList.remove('active');
+    if (d.getAttribute('data-slide') === target) {
+      d.classList.add('active');
+    }
+  });
+
+  // Trigger scroll reveal on new slide
+  setTimeout(function() { triggerScrollReveal(dest); }, 100);
 }
 
+/* ══════════════ KEYBOARD NAVIGATION ══════════════ */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeLightbox(); return; }
+
+  var current = document.querySelector('.slide.active');
+  if (!current) return;
+  var name = current.getAttribute('data-name');
+  var idx = slides.indexOf(name);
+
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (idx < slides.length - 1) goTo(slides[idx + 1]);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (idx > 0) goTo(slides[idx - 1]);
+  }
+});
+
+/* ══════════════ LIGHTBOX ══════════════ */
 function openLightbox(el) {
   document.getElementById('lightbox-img').src = el.src;
   document.getElementById('lightbox').classList.add('active');
@@ -447,12 +548,79 @@ function closeLightbox() {
   document.getElementById('lightbox').classList.remove('active');
 }
 
-// Close lightbox with Escape key
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeLightbox();
+/* ══════════════ MOBILE MENU ══════════════ */
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobile-menu');
+  var hamburger = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  hamburger.classList.toggle('open');
+}
+
+/* ══════════════ SCROLL TO TOP ══════════════ */
+function scrollToTop(btn) {
+  var scrollArea = btn.closest('.scroll-content');
+  if (scrollArea) scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ══════════════ MAGNETIC BUTTONS ══════════════ */
+document.querySelectorAll('.magnetic').forEach(function(el) {
+  el.addEventListener('mousemove', function(e) {
+    var rect = el.getBoundingClientRect();
+    var x = e.clientX - rect.left - rect.width / 2;
+    var y = e.clientY - rect.top - rect.height / 2;
+    el.style.transform = 'translate(' + (x * 0.3) + 'px, ' + (y * 0.3) + 'px)';
+  });
+  el.addEventListener('mouseleave', function() {
+    el.style.transform = 'translate(0, 0)';
+  });
 });
 
-/* ── Typing Animation ── */
+/* ══════════════ TILT EFFECT ══════════════ */
+document.querySelectorAll('.tilt-card').forEach(function(card) {
+  card.addEventListener('mousemove', function(e) {
+    var rect = card.getBoundingClientRect();
+    var x = (e.clientX - rect.left) / rect.width - 0.5;
+    var y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = 'perspective(800px) rotateY(' + (x * 5) + 'deg) rotateX(' + (-y * 5) + 'deg)';
+  });
+  card.addEventListener('mouseleave', function() {
+    card.style.transform = 'perspective(800px) rotateY(0) rotateX(0)';
+  });
+});
+
+/* ══════════════ SCROLL REVEAL ══════════════ */
+function triggerScrollReveal(container) {
+  var items = container.querySelectorAll('.reveal-item');
+  items.forEach(function(item, i) {
+    item.classList.remove('revealed');
+    setTimeout(function() {
+      item.classList.add('revealed');
+    }, i * 120);
+  });
+}
+
+// Initial reveal for home
+setTimeout(function() {
+  triggerScrollReveal(document.querySelector('.slide.active'));
+}, 200);
+
+/* ══════════════ NAME LETTER ANIMATION ══════════════ */
+(function() {
+  var nameEl = document.getElementById('hero-name-text');
+  var fullText = 'Fauzan Gauhar Khan';
+  var i = 0;
+  function typeName() {
+    if (i <= fullText.length) {
+      nameEl.textContent = fullText.substring(0, i);
+      i++;
+      setTimeout(typeName, 80);
+    }
+  }
+  // Start after preloader
+  setTimeout(typeName, 1400);
+})();
+
+/* ══════════════ TYPING ANIMATION ══════════════ */
 (function() {
   var phrases = [
     '.NET Developer | C# · ASP.NET Core · Blazor · SQL',
@@ -463,7 +631,6 @@ document.addEventListener('keydown', function(e) {
   var phraseIdx = 0;
   var charIdx = 0;
   var isDeleting = false;
-  var typeSpeed = 60;
 
   function type() {
     var current = phrases[phraseIdx];
@@ -473,14 +640,10 @@ document.addEventListener('keydown', function(e) {
       charIdx++;
 
       if (charIdx === current.length) {
-        // Pause at end of phrase
-        setTimeout(function() {
-          isDeleting = true;
-          type();
-        }, 2000);
+        setTimeout(function() { isDeleting = true; type(); }, 2200);
         return;
       }
-      typeSpeed = 50 + Math.random() * 40;
+      setTimeout(type, 50 + Math.random() * 40);
     } else {
       typedText.textContent = current.substring(0, charIdx - 1);
       charIdx--;
@@ -491,15 +654,40 @@ document.addEventListener('keydown', function(e) {
         setTimeout(type, 400);
         return;
       }
-      typeSpeed = 25;
+      setTimeout(type, 25);
     }
-
-    setTimeout(type, typeSpeed);
   }
 
-  // Start typing after entrance animations
-  setTimeout(type, 1200);
+  setTimeout(type, 1800);
 })();
+
+/* ══════════════ SCROLL TRACKING ══════════════ */
+document.querySelectorAll('.scroll-content').forEach(function(sc) {
+  sc.addEventListener('scroll', function() {
+    // Show/hide scroll-to-top button
+    if (sc.scrollTop > 300) {
+      sc.classList.add('scrolled');
+    } else {
+      sc.classList.remove('scrolled');
+    }
+
+    // Trigger reveal for items in view
+    var items = sc.querySelectorAll('.reveal-item:not(.revealed)');
+    items.forEach(function(item) {
+      var rect = item.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.88) {
+        item.classList.add('revealed');
+      }
+    });
+  });
+});
+
+/* ══════════════ PRELOADER ══════════════ */
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.getElementById('preloader').classList.add('loaded');
+  }, 1200);
+});
 </script>
 
 </body>
