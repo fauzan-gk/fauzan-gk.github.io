@@ -6,11 +6,14 @@
 // This can be used to set the Particles Effects. Check README for more details!
 document.addEventListener('DOMContentLoaded', function () {
   particleground(document.getElementById('particles'), {
-    dotColor: '#5cbdaa',
-    lineColor: '#5cbdaa'
+    dotColor: '#8b3a4a',
+    lineColor: '#5a2535',
+    density: 11000,
+    maxSpeed: 0.4,
+    parallax: true,
+    proximity: 150
   });
-  var intro = document.getElementById('intro');
-  intro.style.marginTop = - intro.offsetHeight / 2 + 'px';
+  // intro element removed — layout handled by CSS
 }, false);
 
 

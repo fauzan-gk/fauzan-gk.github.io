@@ -5,7 +5,7 @@
   <title>Fauzan Gauhar Khan</title>
   <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" type="text/css">
   <script type="text/javascript" src="js/jquery.particleground.js"></script>
@@ -36,21 +36,37 @@
   <!-- ══════════════ HOME ══════════════ -->
   <div class="slide active" data-name="home">
     <div class="slide-content home-content">
-      <h1 class="hero-name fade-in-up" style="animation-delay: 0.1s">Fauzan Gauhar Khan</h1>
-      <p class="hero-tagline fade-in-up" style="animation-delay: 0.3s">.NET Developer &nbsp;|&nbsp; C# &nbsp;·&nbsp; ASP.NET Core &nbsp;·&nbsp; Blazor &nbsp;·&nbsp; SQL &nbsp;|&nbsp; Unity Game Developer</p>
-      <hr class="divider fade-in-up" style="animation-delay: 0.45s">
-      <div class="social-row fade-in-up" style="animation-delay: 0.55s">
-        <a href="https://www.linkedin.com/in/fauzan-gauhar-khan-b1226a316/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://fauzan-gk.itch.io" title="itch.io"><i class="fab fa-itch-io"></i></a>
-        <a href="https://github.com/fauzan-gk" title="GitHub"><i class="fab fa-github"></i></a>
+      <div class="home-inner">
+        <h1 class="hero-name fade-in-up" style="animation-delay: 0.1s">
+          <span class="name-gradient">Fauzan Gauhar Khan</span>
+        </h1>
+        <p class="hero-tagline fade-in-up" style="animation-delay: 0.3s">
+          <span id="typed-prefix"></span><span id="typed-text"></span><span class="cursor">|</span>
+        </p>
+        <hr class="divider fade-in-up" style="animation-delay: 0.45s">
+        <div class="social-row fade-in-up" style="animation-delay: 0.55s">
+          <a href="https://www.linkedin.com/in/fauzan-gauhar-khan-b1226a316/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://fauzan-gk.itch.io" title="itch.io"><i class="fab fa-itch-io"></i></a>
+          <a href="https://github.com/fauzan-gk" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="home-buttons fade-in-up" style="animation-delay: 0.7s">
+          <a href="fgkCV.pdf" download class="btn btn-primary">Download CV</a>
+          <a href="#" class="btn btn-outline" onclick="goTo('about'); return false;">About Me <i class="fas fa-arrow-right btn-icon"></i></a>
+        </div>
       </div>
-      <a href="fgkCV.pdf" download class="btn btn-primary fade-in-up" style="animation-delay: 0.7s">Download CV</a>
+      <div class="scroll-hint fade-in-up" style="animation-delay: 1.2s">
+        <span>Scroll or navigate</span>
+        <div class="scroll-arrows">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- ══════════════ ABOUT ══════════════ -->
   <div class="slide" data-name="about">
     <div class="slide-content scroll-content">
+      <!-- Profile Header -->
       <div class="about-top">
         <div class="profile-pic-wrapper">
           <img src="FGK.png" alt="Fauzan Gauhar Khan" class="profile-pic">
@@ -60,25 +76,34 @@
         <p class="about-role">.NET Developer &nbsp;|&nbsp; Unity Game Developer</p>
       </div>
 
-      <p class="bio-text">
-        .NET developer and BS Computer Science student with hands-on experience across the C# ecosystem — C#, ASP.NET Core, Blazor, Web APIs, and SQL Server/EF Core. Built and shipped <strong>CyberShield</strong>, a full desktop antivirus application with a multi-layer scanning engine, placing runner-up in a Semester Project Competition.
-      </p>
-      <p class="bio-text">
-        Also shipped full-stack mobile products (Firebase/Supabase) and Unity/C# systems, showing strong OOP fundamentals and a track record of delivering complete, working software under tight timelines.
-      </p>
+      <!-- Bio -->
+      <div class="about-section">
+        <p class="bio-text">
+          .NET developer and BS Computer Science student with hands-on experience across the C# ecosystem — C#, ASP.NET Core, Blazor, Web APIs, and SQL Server/EF Core. Built and shipped <strong>CyberShield</strong>, a full desktop antivirus application with a multi-layer scanning engine, placing runner-up in a Semester Project Competition.
+        </p>
+        <p class="bio-text">
+          Also shipped full-stack mobile products (Firebase/Supabase) and Unity/C# systems, showing strong OOP fundamentals and a track record of delivering complete, working software under tight timelines.
+        </p>
+      </div>
 
       <!-- Skills -->
-      <h3 class="section-subtitle">Technical Skills</h3>
+      <h3 class="section-subtitle"><span class="subtitle-icon"><i class="fas fa-code"></i></span> Technical Skills</h3>
       <div class="skills-grid">
-        <div class="skill-category">
-          <h4>Languages</h4>
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <i class="fas fa-terminal"></i>
+            <h4>Languages</h4>
+          </div>
           <div class="skill-tags">
             <span class="skill-tag">C#</span>
             <span class="skill-tag">Java</span>
           </div>
         </div>
-        <div class="skill-category">
-          <h4>.NET Ecosystem</h4>
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <i class="fab fa-microsoft"></i>
+            <h4>.NET Ecosystem</h4>
+          </div>
           <div class="skill-tags">
             <span class="skill-tag">ASP.NET Core</span>
             <span class="skill-tag">Blazor</span>
@@ -86,15 +111,21 @@
             <span class="skill-tag">WinForms</span>
           </div>
         </div>
-        <div class="skill-category">
-          <h4>Data</h4>
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <i class="fas fa-database"></i>
+            <h4>Data</h4>
+          </div>
           <div class="skill-tags">
             <span class="skill-tag">SQL</span>
             <span class="skill-tag">Entity Framework Core</span>
           </div>
         </div>
-        <div class="skill-category">
-          <h4>Mobile &amp; Game Dev</h4>
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <i class="fas fa-gamepad"></i>
+            <h4>Mobile &amp; Game Dev</h4>
+          </div>
           <div class="skill-tags">
             <span class="skill-tag">Flutter</span>
             <span class="skill-tag">Unity</span>
@@ -102,8 +133,11 @@
             <span class="skill-tag">ScriptableObject</span>
           </div>
         </div>
-        <div class="skill-category">
-          <h4>Backend &amp; Cloud</h4>
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <i class="fas fa-cloud"></i>
+            <h4>Backend &amp; Cloud</h4>
+          </div>
           <div class="skill-tags">
             <span class="skill-tag">Firebase</span>
             <span class="skill-tag">Supabase</span>
@@ -111,36 +145,52 @@
             <span class="skill-tag">FCM</span>
           </div>
         </div>
-        <div class="skill-category">
-          <h4>Tools</h4>
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <i class="fas fa-wrench"></i>
+            <h4>Tools</h4>
+          </div>
           <div class="skill-tags">
             <span class="skill-tag">Git</span>
             <span class="skill-tag">Debugging</span>
-            <span class="skill-tag">Performance Optimization</span>
+            <span class="skill-tag">Perf. Optimization</span>
             <span class="skill-tag">Agile</span>
           </div>
         </div>
       </div>
 
       <!-- Education -->
-      <h3 class="section-subtitle">Education</h3>
-      <div class="edu-item">
-        <h4>BS Computer Science</h4>
-        <p class="school">COMSATS University Islamabad, Abbottabad Campus</p>
-        <p class="year">Sep 2023 – Sep 2027</p>
+      <h3 class="section-subtitle"><span class="subtitle-icon"><i class="fas fa-graduation-cap"></i></span> Education</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>BS Computer Science</h4>
+            <p class="school">COMSATS University Islamabad, Abbottabad Campus</p>
+            <p class="year">Sep 2023 – Sep 2027</p>
+          </div>
+        </div>
       </div>
 
       <!-- Experience -->
-      <h3 class="section-subtitle">Experience</h3>
-      <div class="edu-item">
-        <h4>Freelance .NET / C# Developer</h4>
-        <p class="school">Self-employed (Fiverr &amp; Upwork)</p>
-        <p class="year">Dec 2025 – Present</p>
-      </div>
-      <div class="edu-item">
-        <h4>Game Developer Intern</h4>
-        <p class="school">EliteTech</p>
-        <p class="year">Jan 2026 – Mar 2026</p>
+      <h3 class="section-subtitle"><span class="subtitle-icon"><i class="fas fa-briefcase"></i></span> Experience</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Game Developer Intern</h4>
+            <p class="school">EliteTech</p>
+            <p class="year">Jan 2026 – Mar 2026</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Freelance .NET / C# Developer</h4>
+            <p class="school">Self-employed (Fiverr &amp; Upwork)</p>
+            <p class="year">Dec 2025 – Present</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -153,11 +203,18 @@
 
       <!-- Project 1: CyberShield -->
       <div class="project-card">
+        <div class="project-number">01</div>
         <div class="project-header">
           <h3>CyberShield</h3>
           <span class="project-date">Oct 2025 – Dec 2025</span>
         </div>
         <p class="project-type">Antivirus Desktop Application · C#, .NET, WinForms</p>
+        <div class="project-tech-stack">
+          <span class="tech-badge">C#</span>
+          <span class="tech-badge">.NET</span>
+          <span class="tech-badge">WinForms</span>
+          <span class="tech-badge">SQL Server</span>
+        </div>
         <ul class="project-desc">
           <li>Built a fully functioning antivirus application in C#/.NET with a 3-layer scanning engine (quick scan, deep scan, heuristic layer) and real-time background protection.</li>
           <li>Designed the scanning pipeline and utility toolset end-to-end; placed <strong>runner-up</strong> in a Semester Project Competition.</li>
@@ -171,15 +228,24 @@
           <img src="Projects/CyberShield/6.jpg" alt="CyberShield screenshot" class="media-thumb" onclick="openLightbox(this)">
           <img src="Projects/CyberShield/7.jpg" alt="CyberShield screenshot" class="media-thumb" onclick="openLightbox(this)">
         </div>
+        <p class="media-count"><i class="fas fa-images"></i> 7 screenshots</p>
       </div>
 
       <!-- Project 2: GearShare -->
       <div class="project-card">
+        <div class="project-number">02</div>
         <div class="project-header">
           <h3>GearShare</h3>
           <span class="project-date">2026</span>
         </div>
         <p class="project-type">Peer-to-Peer Equipment Rental Marketplace · Flutter, Firebase, Supabase</p>
+        <div class="project-tech-stack">
+          <span class="tech-badge">Flutter</span>
+          <span class="tech-badge">Firebase</span>
+          <span class="tech-badge">Supabase</span>
+          <span class="tech-badge">Cloud Functions</span>
+          <span class="tech-badge">FCM</span>
+        </div>
         <ul class="project-desc">
           <li>Built a full-stack mobile marketplace with Firebase Auth and automated OCR-based CNIC identity verification via Google ML Kit.</li>
           <li>Implemented a dual-database architecture (Cloud Firestore for real-time rental/status streams, Supabase Storage for media) with FCM + Cloud Functions push notifications and trust &amp; safety logic (deposits, insurance, verified "Previous Renter" badges).</li>
@@ -194,27 +260,46 @@
           <img src="Projects/GearShearScreenshots/add-item.png" alt="GearShare add item" class="media-thumb" onclick="openLightbox(this)">
           <img src="Projects/GearShearScreenshots/profile-page.png" alt="GearShare profile" class="media-thumb" onclick="openLightbox(this)">
         </div>
+        <p class="media-count"><i class="fas fa-images"></i> 8 screenshots</p>
       </div>
 
       <!-- Project 3: Driveon (placeholder) -->
       <div class="project-card">
+        <div class="project-number">03</div>
         <div class="project-header">
           <h3>Driveon</h3>
           <span class="project-date">2026</span>
         </div>
         <p class="project-type">Mobile Driving Game · Unity</p>
+        <div class="project-tech-stack">
+          <span class="tech-badge">Unity</span>
+          <span class="tech-badge">C#</span>
+        </div>
         <ul class="project-desc">
           <li>Developed a mobile driving game spanning three distinct modes — stunt courses, open city driving, and a dedicated drift map — each with tuned vehicle handling.</li>
         </ul>
+        <div class="project-media placeholder-media">
+          <div class="media-placeholder">
+            <i class="fas fa-car"></i>
+            <span>Media coming soon</span>
+          </div>
+        </div>
       </div>
 
       <!-- Project 4: STSHV -->
       <div class="project-card">
+        <div class="project-number">04</div>
         <div class="project-header">
           <h3>Sovereign of the Shattered Veil</h3>
           <span class="project-date">Jan 1 – Jan 7, 2026</span>
         </div>
         <p class="project-type">Action RPG · Unity 6, URP, C#</p>
+        <div class="project-tech-stack">
+          <span class="tech-badge">Unity 6</span>
+          <span class="tech-badge">URP</span>
+          <span class="tech-badge">C#</span>
+          <span class="tech-badge">ScriptableObjects</span>
+        </div>
         <ul class="project-desc">
           <li>Architected a third-person action RPG's core systems from scratch: combo-based melee combat, a data-driven quest system built on ScriptableObjects, modular inventory, and XP/skill-tree progression.</li>
           <li>Shipped a complete, playable build in a <strong>one-week</strong> development cycle — demonstrating rapid, disciplined delivery under deadline.</li>
@@ -227,11 +312,13 @@
           <img src="Projects/STSHV/5.png" alt="STSHV screenshot" class="media-thumb" onclick="openLightbox(this)">
           <img src="Projects/STSHV/6.png" alt="STSHV screenshot" class="media-thumb" onclick="openLightbox(this)">
         </div>
+        <p class="media-count"><i class="fas fa-images"></i> 6 screenshots</p>
         <div class="project-video">
           <video controls preload="metadata" poster="Projects/STSHV/1.png">
             <source src="Projects/STSHV/videoplayback.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          <p class="media-count video-label"><i class="fas fa-play-circle"></i> Trailer</p>
         </div>
       </div>
 
@@ -244,26 +331,53 @@
       <h2 class="slide-heading">Get In Touch</h2>
       <hr class="section-line">
 
+      <p class="contact-intro">Have a project in mind or just want to connect? Feel free to reach out — I'm always open to new opportunities and collaborations.</p>
+
       <div class="contact-grid">
         <a href="mailto:fauzangauhar037@gmail.com" class="contact-item">
-          <i class="fas fa-envelope"></i>
-          <span>fauzangauhar037@gmail.com</span>
+          <div class="contact-icon-wrap">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">fauzangauhar037@gmail.com</span>
+          </div>
         </a>
         <a href="tel:+923295645366" class="contact-item">
-          <i class="fas fa-phone"></i>
-          <span>0329-5645366</span>
+          <div class="contact-icon-wrap">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">0329-5645366</span>
+          </div>
         </a>
-        <a href="https://www.linkedin.com/in/fauzan-gauhar-khan-b1226a316/" class="contact-item">
-          <i class="fab fa-linkedin"></i>
-          <span>LinkedIn</span>
+        <a href="https://www.linkedin.com/in/fauzan-gauhar-khan-b1226a316/" class="contact-item" target="_blank">
+          <div class="contact-icon-wrap">
+            <i class="fab fa-linkedin"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">fauzan-gauhar-khan</span>
+          </div>
         </a>
-        <a href="https://github.com/fauzan-gk" class="contact-item">
-          <i class="fab fa-github"></i>
-          <span>GitHub</span>
+        <a href="https://github.com/fauzan-gk" class="contact-item" target="_blank">
+          <div class="contact-icon-wrap">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">fauzan-gk</span>
+          </div>
         </a>
-        <a href="https://fauzan-gk.itch.io" class="contact-item">
-          <i class="fab fa-itch-io"></i>
-          <span>itch.io</span>
+        <a href="https://fauzan-gk.itch.io" class="contact-item" target="_blank">
+          <div class="contact-icon-wrap">
+            <i class="fab fa-itch-io"></i>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">itch.io</span>
+            <span class="contact-value">fauzan-gk</span>
+          </div>
         </a>
       </div>
 
@@ -272,7 +386,7 @@
         <span>Abbottabad, Pakistan</span>
       </div>
 
-      <div style="margin-top: 35px;">
+      <div class="contact-actions">
         <a href="fgkCV.pdf" download class="btn btn-primary">Download CV</a>
       </div>
 
@@ -337,6 +451,55 @@ function closeLightbox() {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeLightbox();
 });
+
+/* ── Typing Animation ── */
+(function() {
+  var phrases = [
+    '.NET Developer | C# · ASP.NET Core · Blazor · SQL',
+    'Unity Game Developer',
+    'BS Computer Science @ COMSATS'
+  ];
+  var typedText = document.getElementById('typed-text');
+  var phraseIdx = 0;
+  var charIdx = 0;
+  var isDeleting = false;
+  var typeSpeed = 60;
+
+  function type() {
+    var current = phrases[phraseIdx];
+
+    if (!isDeleting) {
+      typedText.textContent = current.substring(0, charIdx + 1);
+      charIdx++;
+
+      if (charIdx === current.length) {
+        // Pause at end of phrase
+        setTimeout(function() {
+          isDeleting = true;
+          type();
+        }, 2000);
+        return;
+      }
+      typeSpeed = 50 + Math.random() * 40;
+    } else {
+      typedText.textContent = current.substring(0, charIdx - 1);
+      charIdx--;
+
+      if (charIdx === 0) {
+        isDeleting = false;
+        phraseIdx = (phraseIdx + 1) % phrases.length;
+        setTimeout(type, 400);
+        return;
+      }
+      typeSpeed = 25;
+    }
+
+    setTimeout(type, typeSpeed);
+  }
+
+  // Start typing after entrance animations
+  setTimeout(type, 1200);
+})();
 </script>
 
 </body>
